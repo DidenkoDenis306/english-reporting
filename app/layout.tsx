@@ -1,11 +1,14 @@
 import '@mantine/core/styles.css';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { ModalsProvider } from '@mantine/modals';
+import { ReactQueryProvider } from '@repo/providers';
 import React from 'react';
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
 import { theme } from '../theme';
+import '@mantine/dates/styles.css';
 
 export const metadata = {
-  title: 'Mantine Next.js template',
-  description: 'I am using Mantine with Next.js!',
+  title: 'English Tutoring Reports',
+  description: 'English Tutoring Reports',
 };
 
 export default function RootLayout({ children }: { children: any }) {
@@ -20,7 +23,11 @@ export default function RootLayout({ children }: { children: any }) {
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <ReactQueryProvider>
+          <MantineProvider theme={theme}>
+            <ModalsProvider>{children}</ModalsProvider>
+          </MantineProvider>
+        </ReactQueryProvider>
       </body>
     </html>
   );

@@ -1,11 +1,17 @@
-import { Welcome } from '../components/Welcome/Welcome';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
+'use client';
 
-export default function HomePage() {
+import { useDisclosure } from '@mantine/hooks';
+import '@mantine/dates/styles.css';
+import { LessonForm, StudentForm } from '@repo/src/components/organisms';
+
+export default function BasicAppShell() {
+  const [opened, { toggle }] = useDisclosure();
+
   return (
     <>
-      <Welcome />
-      <ColorSchemeToggle />
+      <StudentForm />
+
+      <LessonForm />
     </>
   );
 }
